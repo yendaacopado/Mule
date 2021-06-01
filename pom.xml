@@ -52,7 +52,7 @@
                     </cloudHubDeployment>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
+			<!-- Commented Out Plugin detail to avoid issue with Enterprise Unit Testing <plugin>
 				<groupId>com.mulesoft.munit.tools</groupId>
 				<artifactId>munit-maven-plugin</artifactId>
 				<version>${munit.version}</version>
