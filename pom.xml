@@ -38,18 +38,31 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-                    <cloudHubDeployment>
-                      <uri>https://anypoint.mulesoft.com</uri>
-                      <muleVersion>${runtime_version}</muleVersion>
-                      <connectedAppClientId>${clientid}</connectedAppClientId>
-                      <connectedAppClientSecret>${clientsecret}</connectedAppClientSecret>
-                      <connectedAppGrantType>client_credentials</connectedAppGrantType>
-                      <applicationName>${appname}</applicationName>
-                      <environment>${environment}</environment>
-                      <workers>${workerCount}</workers>
-                      <workerType>${workerType}</workerType>
-                      <objectStoreV2>true</objectStoreV2>
-                    </cloudHubDeployment>
+					<runtimeFabricDeployment>
+					  <uri>https://anypoint.mulesoft.com</uri>
+					  <muleVersion>${runtime_version}</muleVersion>
+					  <!--<server>MuleRepository</server>-->
+						<username>$enterprise_username</username>
+						<password>$enterprise_password</password>
+					  <applicationName>${appname}-${environment}</applicationName>
+					  <environment>${environment}</environment>
+					  <provider>${provider}</provider>
+					  <target>${target}</target>
+					  <properties>
+					     <!--anypoint.platform.client_id>xxx</anypoint.platform.client_id-->
+					     <!--anypoint.platform.client_secret>xxx</anypoint.platform.client_secret-->
+					     <anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
+					     <anypoint.platform.base_uri>https://anypoint.mulesoft.com/</anypoint.platform.base_uri>
+					     <mule.env>${environment}</mule.env>
+					  </properties>
+					  <deploymentSettings>
+					     <cpuReserved>100m</cpuReserved>
+					     <cpuMax>1000m</cpuMax>
+					     <memoryReserved>800Mi</memoryReserved>
+					     <memoryMax>999Mi</memoryMax>
+					     <replicationFactor>1</replicationFactor>
+					  </deploymentSettings>
+				       </runtimeFabricDeployment>
 				</configuration>
 			</plugin>
 			<!-- Commented Out Plugin detail to avoid issue with Enterprise Unit Testing <plugin>
