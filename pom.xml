@@ -43,6 +43,7 @@
                       <muleVersion>${runtime_version}</muleVersion>
                       <connectedAppClientId>${clientid}</connectedAppClientId>
                       <connectedAppClientSecret>${clientsecret}</connectedAppClientSecret>
+			<region>${region}</region>
                       <connectedAppGrantType>client_credentials</connectedAppGrantType>
                       <applicationName>${appname}</applicationName>
                       <environment>${environment}</environment>
